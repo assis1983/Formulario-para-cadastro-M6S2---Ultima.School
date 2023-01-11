@@ -1,0 +1,59 @@
+<!doctype html>
+{% load bootstrap5 %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Formulário para cadastro</title>
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+    </style>
+    <link href="/static/starter-template.css" rel="stylesheet">
+  </head>
+<body>
+  <div class="col-lg-8 mx-auto p-3 py-md-5">
+<main>
+  <span class="fs-4">Cadastro do seu Pet</span>
+  <hr class="col-5 col-md-12 mb-10">
+  <h1>Informe abaixo os dados do seu Pet</h1>
+  <p>
+    Envie uma mensagem através do Formulário abaixo ou ligue para o {{ telefone }} , falando com o responsável {{ responsavel }}.
+  </p>
+  {% if sucesso %}
+  <p class="alert alert-success">Mensagem Enviada com sucesso!</p>
+  {% else %}
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        
+    
+    <div class="col-md-3">
+      <div class="d-grid gap-2">
+        <button  class="btn btn-primary" type="submit">Enviar Mensagem</button>
+      </div>
+    </div>
+  
+  </form> 
+</main>
+  <footer class="pt-5 my-5 text-muted border-top">
+      Eder Assis team 2023
+  </footer>
+</div>
+    <script src="/static/bootstrap.bundle.min.js"></script>
+{% endif %}
+</body>
+</html>
